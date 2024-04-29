@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rabbit and Carrot</title>
+    <style>
+      /* Style to make audio controls look like buttons */
+      audio {
+        display: inline-block;
+        appearance: none;
+        background-color: #4caf50;
+        color: white;
+        padding: 8px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      audio:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Task 1: Displaying text with voice narration -->
+    <h1>
+      A rabbit is eating carrot that is fresh from the garden and orange in
+      color
+    </h1>
+    <audio id="narration" controls>
+      <source src="Heading.mpeg" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Task 2: Asking a question about who is eating a carrot -->
+    <p>Who is eating a carrot?</p>
+    <audio id="question1" controls>
+      <source src="Question1.mpeg" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <p id="answer1"></p>
+
+    <!-- Task 3: Asking what rabbit is eating -->
+    <p>What is rabbit eating?</p>
+    <audio id="question2" controls>
+      <source src="Question2.mpeg" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <p id="answer2"></p>
+
+    <!-- JavaScript to record answers -->
+    <script>
+      // Record answers
+      document
+        .getElementById("question1")
+        .addEventListener("ended", function () {
+          document.getElementById("answer1").innerText =
+            "Rabbit is eating the carrot.";
+        });
+
+      document
+        .getElementById("question2")
+        .addEventListener("ended", function () {
+          document.getElementById("answer2").innerText =
+            "Rabbit is eating a fresh and orange carrot.";
+        });
+    </script>
+  </body>
+</html>
